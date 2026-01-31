@@ -1,0 +1,143 @@
+{
+  "info": {
+    "name": "Industrial Monitoring API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth - Login",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "http://localhost:5000/api/auth/login", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "auth", "login"] },
+        "body": { "mode": "raw", "raw": "{\"email\":\"admin@factory.com\",\"password\":\"Admin@123\"}" }
+      }
+    },
+    {
+      "name": "Auth - Register",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "http://localhost:5000/api/auth/register", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "auth", "register"] },
+        "body": { "mode": "raw", "raw": "{\"email\":\"viewer1@factory.com\",\"password\":\"Viewer@123\"}" }
+      }
+    },
+    {
+      "name": "Auth - Promote (Admin)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": { "raw": "http://localhost:5000/api/auth/promote", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "auth", "promote"] },
+        "body": { "mode": "raw", "raw": "{\"email\":\"viewer1@factory.com\",\"role\":\"engineer\"}" }
+      }
+    },
+    {
+      "name": "Auth - Users (Admin)",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": { "raw": "http://localhost:5000/api/auth/users", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "auth", "users"] }
+      }
+    },
+    {
+      "name": "Machines - List",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": { "raw": "http://localhost:5000/api/machines", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "machines"] }
+      }
+    },
+    {
+      "name": "Machines - By ID",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": { "raw": "http://localhost:5000/api/machines/{{machineId}}", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "machines", "{{machineId}}"] }
+      }
+    },
+    {
+      "name": "Control - Start",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": { "raw": "http://localhost:5000/api/control/{{machineId}}/start", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "control", "{{machineId}}", "start"] }
+      }
+    },
+    {
+      "name": "Control - Emergency (Admin)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": { "raw": "http://localhost:5000/api/control/{{machineId}}/emergency", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "control", "{{machineId}}", "emergency"] }
+      }
+    },
+    {
+      "name": "Alerts - List",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": { "raw": "http://localhost:5000/api/alerts", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "alerts"] }
+      }
+    },
+    {
+      "name": "Alerts - Unresolved",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": { "raw": "http://localhost:5000/api/alerts/unresolved", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "alerts", "unresolved"] }
+      }
+    },
+    {
+      "name": "Logs - List",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": { "raw": "http://localhost:5000/api/logs", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "logs"] }
+      }
+    },
+    {
+      "name": "Analytics - Production per hour",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": { "raw": "http://localhost:5000/api/analytics/production", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "analytics", "production"] }
+      }
+    },
+    {
+      "name": "Analytics - Temperature",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": { "raw": "http://localhost:5000/api/analytics/temperature", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "analytics", "temperature"] }
+      }
+    },
+    {
+      "name": "Analytics - Vibration",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": { "raw": "http://localhost:5000/api/analytics/vibration", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "analytics", "vibration"] }
+      }
+    },
+    {
+      "name": "Analytics - Conveyor Load",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": { "raw": "http://localhost:5000/api/analytics/conveyor-load", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "analytics", "conveyor-load"] }
+      }
+    },
+    {
+      "name": "Analytics - Robot Movement",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": { "raw": "http://localhost:5000/api/analytics/robot-movement", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "analytics", "robot-movement"] }
+      }
+    }
+  ],
+  "event": []
+}
