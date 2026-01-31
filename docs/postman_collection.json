@@ -10,7 +10,7 @@
         "method": "POST",
         "header": [{ "key": "Content-Type", "value": "application/json" }],
         "url": { "raw": "http://localhost:5000/api/auth/login", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "auth", "login"] },
-        "body": { "mode": "raw", "raw": "{\"email\":\"admin@factory.com\",\"password\":\"Admin@123\"}" }
+        "body": { "mode": "raw", "raw": "{\"email\":\"{{ADMIN_EMAIL}}\",\"password\":\"{{ADMIN_PASSWORD}}\"}" }
       }
     },
     {
@@ -19,7 +19,7 @@
         "method": "POST",
         "header": [{ "key": "Content-Type", "value": "application/json" }],
         "url": { "raw": "http://localhost:5000/api/auth/register", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "auth", "register"] },
-        "body": { "mode": "raw", "raw": "{\"email\":\"viewer1@factory.com\",\"password\":\"Viewer@123\"}" }
+        "body": { "mode": "raw", "raw": "{\"email\":\"{{VIEWER_EMAIL}}\",\"password\":\"{{VIEWER_PASSWORD}}\"}" }
       }
     },
     {
@@ -31,7 +31,7 @@
           { "key": "Authorization", "value": "Bearer {{token}}" }
         ],
         "url": { "raw": "http://localhost:5000/api/auth/promote", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "auth", "promote"] },
-        "body": { "mode": "raw", "raw": "{\"email\":\"viewer1@factory.com\",\"role\":\"engineer\"}" }
+        "body": { "mode": "raw", "raw": "{\"email\":\"{{VIEWER_EMAIL}}\",\"role\":\"engineer\"}" }
       }
     },
     {
